@@ -1,6 +1,5 @@
 vendor/
 Logs/
-source/Boot/Config.php
 themes/views/assets/scripts.js
 themes/views/assets/style.css 
 sql

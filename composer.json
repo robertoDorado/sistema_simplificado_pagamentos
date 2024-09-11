@@ -1,10 +1,10 @@
 {
-    "name": "framework-php/dev",
-    "description": "Framework padrão MVC",
+    "name": "sistema-pagamentos/dev",
+    "description": "Sistema Simplificado de Pagamentos",
     "minimum-stability": "stable",
     "authors": [
         {
-            "name": "framework-php",
+            "name": "sistema-simplificado-pagamentos",
             "email": "robertodorado7@gmail.com",
             "homepage": "https://localhost",
             "role": "Developer"
