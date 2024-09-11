@@ -1,0 +1,30 @@
+services:
+  php-apache-sistema-pagamentos-simplificado:
+    container_name: php-apache-sistema-pagamentos-simplificado
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - db-sistema-pagamentos-simplificado
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - app-network
+  db-sistema-pagamentos-simplificado:
+    image: mysql:5.7
+    container_name: db-sistema-pagamentos-simplificado
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: framework_php
+    networks:
+      - app-network
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+networks:
+  app-network:
+    driver: bridge
