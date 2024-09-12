@@ -26,6 +26,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd zip pdo pdo_mysql mysqli soap \
     && rm -rf /var/lib/apt/lists/*
 
+# Copiar certificados SSL para o conteiner php-apache
+COPY ssl/localhost.pem /etc/ssl/certs/localhost.pem
+COPY ssl/localhost-key.pem /etc/ssl/private/localhost-key.pem
+
 # Copiar arquivos de configuração
 COPY apache-config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY apache-config/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf

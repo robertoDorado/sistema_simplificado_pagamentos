@@ -57,7 +57,8 @@ Para verificar se o `mkcert` foi instalado corretamente, você pode executar:
    ```powershell
    cd sistema_simplificado_pagamentos
    mkdir ssl
-   mkcert -install
+   cd ssl
+   mkcert -install localhost
    ```
 
 3. Execute o projeto e atualize as dependências
