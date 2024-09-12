@@ -29,7 +29,7 @@ class User extends Model
     /** @var string Saldo Final */
     protected string $userBalance = "user_balance";
 
-    /** @var string Tipo de usuário */
+    /** @var string Tipo de usuário será do tipo TINYINT, 0: usuário comum, 1: usuário lojista */
     protected string $userType = "user_type";
 
     /**

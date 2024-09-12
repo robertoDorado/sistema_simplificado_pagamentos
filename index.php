@@ -25,7 +25,7 @@ $route = new MyRouter(url(), "::");
 /**
  * Home Route
  */
-$module = "user";
+$module = null;
 $route->namespace("Source\Controllers");
 $route->group($module);
 $route->post("/transfer", "User::transferValue");

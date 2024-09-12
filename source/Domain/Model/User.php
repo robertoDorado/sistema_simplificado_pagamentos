@@ -1,7 +1,6 @@
 <?php
 namespace Source\Domain\Model;
 
-use Exception;
 use Source\Models\User as ModelsUser;
 use Source\Support\Message;
 
@@ -17,7 +16,7 @@ class User
     private ModelsUser $user;
 
     /** @var Message */
-    private Message $message;
+    public Message $message;
 
     /** @var int */
     private int $id;
@@ -28,19 +27,16 @@ class User
     public function __construct(string $class)
     {
         $this->user = new $class();
-        if (!$this->user instanceof ModelsUser) {
-            throw new Exception("a classe " . $class . " é inválida");
-        }
         $this->message = new Message();
     }
 
-    public function getId()
+    public function getId(): int
     {
         $this->message->error("id inválido");
         if (empty($this->id)) {
-            http_response_code(500);
-            echo $this->message->json();
-            die;
+            http_response_code(400);
+            $this->message->json();
+            return 0;
         }
 
         return $this->id;
@@ -51,9 +47,29 @@ class User
         $this->id = $id;
     }
 
-    public function findUserById(array $columns): ?ModelsUser
+    public function findUserById(array $columns, string $userType): ?ModelsUser
     {
+        $validateUserType = ["payer", "payee"];
+        if (!in_array($userType, $validateUserType)) {
+            $this->message->error("tipo de usuário inválido");
+            return null;
+        }
+
         $columns = empty($columns) ? "*" : implode(", ", $columns);
-        return $this->user->findById($this->getId());
+        $response = $this->user->findById($this->getId());
+
+        if (empty($response)) {
+            $this->message->error("{$userType} não encontrado");
+            return null;
+        }
+
+        if ($userType == "payer") {
+            if (!empty($response->user_type)) {
+                $this->message->error("usuário pagante não pode ser lojista");
+                return null;
+            }
+        }
+
+        return $response;
     }
 }
