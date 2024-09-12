@@ -52,7 +52,7 @@ Para verificar se o `mkcert` foi instalado corretamente, você pode executar:
    git clone https://github.com/robertoDorado/sistema_simplificado_pagamentos.git
    ```
 
-2. Caso tenha optado por instalar o mkcert na máquina local, faça a instalação da CA na pasta ssl
+2. Após a instalação o mkcert na máquina local, faça a instalação da CA na pasta ssl
 
    ```powershell
    cd sistema_simplificado_pagamentos
