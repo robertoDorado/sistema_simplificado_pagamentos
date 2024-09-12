@@ -18,5 +18,5 @@ Este projeto é um sistema simplificado de pagamentos desenvolvido em PHP 8 e co
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/sistema-pagamentos.git
-   cd sistema-pagamentos
+   git clone https://github.com/robertoDorado/sistema_simplificado_pagamentos.git
+   cd sistema_simplificado_pagamentos
