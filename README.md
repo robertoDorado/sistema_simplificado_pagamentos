@@ -60,8 +60,9 @@ Para verificar se o `mkcert` foi instalado corretamente, você pode executar:
    mkcert -install
    ```
 
-3. Atualize as dependências
+3. Execute o projeto e atualize as dependências
 
    ```docker
+   docker-compose up -d
    docker exec -it php-apache-sistema-pagamentos-simplificado /bin/bash
    composer update
