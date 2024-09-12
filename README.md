@@ -15,7 +15,7 @@ Este projeto é um sistema simplificado de pagamentos desenvolvido em PHP 8 e co
 
 ## Instalação do projeto na máquina
 
-1. Instalação do ssl em ambiente local (opcional)
+1. Instalação do ssl em ambiente local
 
 Este guia explica como instalar o `mkcert` em uma máquina Windows utilizando o Chocolatey.
 
