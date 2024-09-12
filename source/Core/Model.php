@@ -181,7 +181,7 @@ abstract class Model
         $parameters = rtrim($parameters, "&");
         $this->between = $betweenColumn . " BETWEEN " . implode(" AND ", $betweenKeys);
 
-        $this->setTerms("", $parameters, $betweenEntity, $this->params);
+        $this->setTerms("", $parameters, $this->params, $betweenEntity);
         $this->setQuery();
         return $this;
     }
@@ -232,7 +232,7 @@ abstract class Model
      * @param array $data
      * @return Model
      */
-    private function setTerms(string $terms, string $params, ?string $entity = null, array &$data): Model
+    private function setTerms(string $terms, string $params, array &$data, ?string $entity = null): Model
     {
         $entity = empty($entity) ? $this->entity : $entity;
 
@@ -300,7 +300,7 @@ abstract class Model
         $this->setColumns($columns);
 
         if (!empty($terms)) {
-            $this->setTerms($terms, $params, null, $this->params);
+            $this->setTerms($terms, $params, $this->params);
         }
 
         $this->setQuery();

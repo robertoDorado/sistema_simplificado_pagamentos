@@ -84,7 +84,8 @@ class DDL
 
         if (empty($this->className)) {
             if (preg_match("/\\\/", basename($this->reflectionClass->getName()))) {
-                $transformedString = array_pop(explode("\\", basename($this->reflectionClass->getName())));
+                $explodeArray = explode("\\", basename($this->reflectionClass->getName()));
+                $transformedString = array_pop($explodeArray);
                 $transformedString = preg_replace('/([a-z])([A-Z])/', '$1_$2', $transformedString);
             }else {
                 $transformedString = preg_replace('/([a-z])([A-Z])/', '$1_$2', basename($this->reflectionClass->getName()));

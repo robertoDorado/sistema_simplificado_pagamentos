@@ -20,7 +20,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: framework_php
+      MYSQL_DATABASE: sistema_simplificado_pagamentos
     networks:
       - app-network
     volumes:

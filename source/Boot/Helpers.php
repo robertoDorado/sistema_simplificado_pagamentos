@@ -1,10 +1,13 @@
 <?php
-
 function executeMigrations(string $instance)
 {
     echo "------------ CLASSE: " . $instance . " -----------------\n";
     $object = new $instance();
-    $methods = array_reverse(get_class_methods($object));
+    $classMethods = get_class_methods($instance);
+    $ddlClassMethods = get_class_methods(\Source\Migrations\Core\DDL::class);
+    
+    $diffMethods = array_diff($classMethods, $ddlClassMethods);
+    $methods = array_reverse($diffMethods);
     
     foreach ($methods as $method) {
         if ($method != "__construct") {

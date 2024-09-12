@@ -20,15 +20,15 @@ error_reporting(E_ALL & (~E_NOTICE | ~E_USER_NOTICE));
 ini_set('error_log', $path);
 ini_set('log_errors', true);
 
-$route = new MyRouter(url(), ":");
+$route = new MyRouter(url(), "::");
 
 /**
  * Home Route
  */
-$module = null;
+$module = "user";
 $route->namespace("Source\Controllers");
 $route->group($module);
-$route->get("/", "Home:index");
+$route->post("/transfer", "User::transferValue");
 
 /**
  * Error Route
@@ -36,7 +36,7 @@ $route->get("/", "Home:index");
 $module = "ops";
 $route->namespace("Source\Controllers");
 $route->group($module);
-$route->get("/error/{error_code}", "Home:error");
+$route->get("/error/{error_code}", "User::error");
 
 
 /**

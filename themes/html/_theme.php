@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <?= $v->section("content"); ?>
+    <?= $this->section("content"); ?>
 </body>
 </html>
 <script src="<?= theme("/assets/scripts.js") ?>"></script>

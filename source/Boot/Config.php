@@ -19,7 +19,7 @@ define("CONF_VIEW_THEME", "html");
 /**
  * Database Setup
  */
-define("CONF_DB_HOST", "db-framework-php");
+define("CONF_DB_HOST", "db-sistema-pagamentos-simplificado");
 define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "root");
 define("CONF_DB_NAME", "sistema_simplificado_pagamentos");
