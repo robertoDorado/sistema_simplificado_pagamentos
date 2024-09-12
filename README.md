@@ -67,3 +67,12 @@ Para verificar se o `mkcert` foi instalado corretamente, você pode executar:
    docker-compose up -d
    docker exec -it php-apache-sistema-pagamentos-simplificado /bin/bash
    composer update
+   ```
+
+4. Execute as migrations dentro do container
+
+   ```docker
+   docker exec -it php-apache-sistema-pagamentos-simplificado /bin/bash
+   dos2unix shell/migrations.sh
+   chmod +x shell/migrations.sh
+   shell/migrations.sh
